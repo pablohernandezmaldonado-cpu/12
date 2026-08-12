@@ -1,0 +1,107 @@
+{
+  "site": {
+    "nombre": "Patagonia al Día",
+    "eslogan": "Noticias de la Región de Aysén, al minuto",
+    "region": "Región de Aysén, Chile",
+    "ciudad": "Coyhaique",
+    "coordenadas": "45°34'S 72°04'O"
+  },
+  "radio": {
+    "enVivo": true,
+    "nombrePrograma": "Panorama Regional",
+    "locutor": "Equipo Patagonia al Día",
+    "urlStreaming": "https://tu-servidor-de-streaming.com/radio.mp3"
+  },
+  "noticiaPrincipal": {
+    "categoria": "Regional",
+    "titulo": "Avanzan trabajos en la Carretera Austral tras las últimas lluvias en Aysén",
+    "bajada": "Vialidad informó que los tramos afectados entre Coyhaique y Puerto Aysén quedarán habilitados durante la semana, restableciendo el tránsito normal.",
+    "fecha": "11 de agosto de 2026",
+    "imagenAlt": "Carretera Austral en la Región de Aysén"
+  },
+  "destacadas": [
+    {
+      "categoria": "Deportes",
+      "titulo": "Club de Boxeo Acorazado prepara a sus deportistas para el campeonato regional",
+      "fecha": "10 de agosto de 2026",
+      "resumen": "La escuela coyhaiquina intensifica sus entrenamientos de cara a la próxima competencia zonal, con varios cupos ya confirmados."
+    },
+    {
+      "categoria": "Salud",
+      "titulo": "Campaña regional refuerza la prevención de hidatidosis en zonas rurales",
+      "fecha": "9 de agosto de 2026",
+      "resumen": "Equipos de salud recorren sectores rurales de Aysén entregando información y control veterinario gratuito a la comunidad."
+    },
+    {
+      "categoria": "Cultura",
+      "titulo": "Coyhaique se prepara para una nueva versión de su feria costumbrista",
+      "fecha": "8 de agosto de 2026",
+      "resumen": "Artesanos y productores locales ya confirmaron su participación en el evento que se realizará en la plaza de armas."
+    }
+  ],
+  "ultimasNoticias": [
+    {
+      "categoria": "Política",
+      "titulo": "Municipio de Coyhaique abre nueva convocatoria del fondo Coyhaique Somos Todos",
+      "fecha": "11 de agosto de 2026",
+      "hora": "09:40",
+      "resumen": "Organizaciones sociales y deportivas ya pueden postular a los fondos concursables 2026."
+    },
+    {
+      "categoria": "Económica",
+      "titulo": "Turismo de intereses especiales crece en la Patagonia Aysén de cara al verano",
+      "fecha": "10 de agosto de 2026",
+      "hora": "18:15",
+      "resumen": "Operadores locales proyectan una temporada con alta demanda desde Chile y el extranjero."
+    },
+    {
+      "categoria": "Policial",
+      "titulo": "Carabineros refuerza controles preventivos en rutas rurales de la región",
+      "fecha": "10 de agosto de 2026",
+      "hora": "12:05",
+      "resumen": "El operativo busca disminuir accidentes de tránsito en caminos secundarios."
+    },
+    {
+      "categoria": "Regional",
+      "titulo": "Puerto Aysén conmemora un nuevo aniversario con actividades familiares",
+      "fecha": "9 de agosto de 2026",
+      "hora": "20:30",
+      "resumen": "La comuna organizó una jornada de celebración abierta a toda la comunidad."
+    }
+  ],
+  "categorias": [
+    { "nombre": "Regional", "color": "#2F4B3C" },
+    { "nombre": "Policial", "color": "#7A342A" },
+    { "nombre": "Política", "color": "#1B3A4B" },
+    { "nombre": "Deportes", "color": "#C9832F" },
+    { "nombre": "Económica", "color": "#4A4E52" },
+    { "nombre": "Cultura", "color": "#6B4A7A" },
+    { "nombre": "Salud", "color": "#2F6B5E" }
+  ],
+  "menu": [
+    { "nombre": "Inicio", "href": "#" },
+    { "nombre": "Regional", "href": "#" },
+    { "nombre": "Policial", "href": "#" },
+    { "nombre": "Política", "href": "#" },
+    { "nombre": "Deportes", "href": "#" },
+    { "nombre": "Económica", "href": "#" },
+    { "nombre": "Cultura", "href": "#" },
+    { "nombre": "Programación", "href": "#" },
+    { "nombre": "Contacto", "href": "#" }
+  ],
+  "publicidad": [],
+  "streamingCanales": [
+    { "id": "canal-1", "titulo": "Canal 1", "url": "", "logoUrl": "" },
+    { "id": "canal-2", "titulo": "Canal 2", "url": "", "logoUrl": "" },
+    { "id": "canal-3", "titulo": "Canal 3", "url": "", "logoUrl": "" },
+    { "id": "canal-4", "titulo": "Canal 4", "url": "", "logoUrl": "" }
+  ],
+  "contacto": {
+    "direccion": "Coyhaique, Región de Aysén, Chile",
+    "telefono": "+56 9 0000 0000",
+    "whatsapp": "+56 9 0000 0000",
+    "email": "contacto@patagoniaaldia.cl",
+    "facebook": "https://facebook.com/patagoniaaldia",
+    "instagram": "https://instagram.com/patagoniaaldia"
+  }
+}
