@@ -17,6 +17,7 @@ export default function ImageUploadField({
   const [status, setStatus] = useState<
     { type: "idle" } | { type: "loading" } | { type: "error"; msg: string }
   >({ type: "idle" });
+  const [previaLocal, setPreviaLocal] = useState<string | null>(null);
 
   async function handleFile(file: File) {
     if (!file.type.startsWith("image/")) {
@@ -28,6 +29,9 @@ export default function ImageUploadField({
       return;
     }
 
+    // Vista previa instantánea, antes de que termine de subir
+    const objectUrl = URL.createObjectURL(file);
+    setPreviaLocal(objectUrl);
     setStatus({ type: "loading" });
 
     const dataUrl: string = await new Promise((resolve, reject) => {
@@ -52,14 +56,22 @@ export default function ImageUploadField({
       setStatus({ type: "idle" });
     } catch {
       setStatus({ type: "error", msg: "No se pudo conectar con el servidor." });
+    } finally {
+      URL.revokeObjectURL(objectUrl);
+      setPreviaLocal(null);
     }
   }
 
+  const imagenAMostrar = previaLocal || value;
+
   return (
     <div className="img-upload">
-      {value ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={value} alt="Vista previa" className="img-upload-preview" />
+      {imagenAMostrar ? (
+        <div className="img-upload-preview-wrap">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={imagenAMostrar} alt="Vista previa" className="img-upload-preview" />
+          {status.type === "loading" && <div className="img-upload-spinner">Subiendo...</div>}
+        </div>
       ) : (
         <div className="img-upload-empty">Sin foto</div>
       )}

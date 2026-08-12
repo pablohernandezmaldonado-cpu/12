@@ -7,6 +7,7 @@ export interface Noticia {
   hora?: string;
   imagenAlt?: string;
   imagenUrl?: string;
+  contenidoCompleto?: string;
 }
 
 export type TipoPublicidad =

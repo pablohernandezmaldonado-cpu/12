@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   site,
   radio,
@@ -13,6 +14,7 @@ import {
 import PublicidadSlot from "./components/PublicidadSlot";
 import ClimaWidget from "./components/ClimaWidget";
 import RelojPuntaArenas from "./components/RelojPuntaArenas";
+import { generarSlug } from "../lib/slug";
 
 export default function Home() {
   return (
@@ -62,12 +64,14 @@ export default function Home() {
         <section className="hero">
           <div>
             {noticiaPrincipal.imagenUrl ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={noticiaPrincipal.imagenUrl}
-                alt={noticiaPrincipal.imagenAlt || noticiaPrincipal.titulo}
-                className="principal-img principal-img-real"
-              />
+              <div className="principal-img-wrap">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={noticiaPrincipal.imagenUrl}
+                  alt={noticiaPrincipal.imagenAlt || noticiaPrincipal.titulo}
+                  className="principal-img-real"
+                />
+              </div>
             ) : (
               <div className="principal-img" aria-label={noticiaPrincipal.imagenAlt} />
             )}
@@ -75,9 +79,9 @@ export default function Home() {
             <h1 className="principal-titulo">{noticiaPrincipal.titulo}</h1>
             <p className="principal-bajada">{noticiaPrincipal.bajada}</p>
             <div className="meta">{noticiaPrincipal.fecha}</div>
-            <a className="leer-mas" href="#">
+            <Link className="leer-mas" href={`/noticia/${generarSlug(noticiaPrincipal.titulo)}`}>
               LEER MÁS →
-            </a>
+            </Link>
           </div>
 
           <aside className="radio-panel">
@@ -89,9 +93,6 @@ export default function Home() {
             <button className="play-btn">▶ ESCUCHAR EN VIVO</button>
           </aside>
         </section>
-
-        {/* Banner comercial superior */}
-        <PublicidadSlot tipo="banner-superior" items={publicidad} />
 
         {/* Streaming de TV (varias señales) + Clima */}
         <section className="tv-clima-row">
@@ -122,6 +123,9 @@ export default function Home() {
           <ClimaWidget />
         </section>
 
+        {/* Banner comercial superior — debajo del clima y las señales */}
+        <PublicidadSlot tipo="banner-superior" items={publicidad} />
+
         {/* Noticias destacadas */}
         <section className="section">
           <h2 className="section-title">
@@ -132,10 +136,12 @@ export default function Home() {
               const color =
                 categorias.find((c) => c.nombre === n.categoria)?.color ?? "#2F4B3C";
               return (
-                <article className="card" key={n.titulo}>
+                <Link href={`/noticia/${generarSlug(n.titulo)}`} className="card" key={n.titulo}>
                   {n.imagenUrl ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={n.imagenUrl} alt={n.titulo} className="card-img card-img-real" />
+                    <div className="card-img-wrap">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={n.imagenUrl} alt={n.titulo} className="card-img-real" />
+                    </div>
                   ) : (
                     <div className="card-img" />
                   )}
@@ -147,7 +153,7 @@ export default function Home() {
                     <p className="card-resumen">{n.resumen}</p>
                     <span className="meta">{n.fecha}</span>
                   </div>
-                </article>
+                </Link>
               );
             })}
           </div>
@@ -182,7 +188,7 @@ export default function Home() {
                 const color =
                   categorias.find((c) => c.nombre === n.categoria)?.color ?? "#2F4B3C";
                 return (
-                  <div className="list-item" key={n.titulo}>
+                  <Link href={`/noticia/${generarSlug(n.titulo)}`} className="list-item" key={n.titulo}>
                     <span className="meta">
                       {n.hora} · {n.fecha.slice(0, 6)}
                     </span>
@@ -199,7 +205,7 @@ export default function Home() {
                       <h3 className="card-title">{n.titulo}</h3>
                       <p className="card-resumen">{n.resumen}</p>
                     </div>
-                  </div>
+                  </Link>
                 );
               })}
             </div>

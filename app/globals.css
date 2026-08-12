@@ -212,17 +212,31 @@ nav.main-menu a:hover {
   overflow: hidden;
 }
 
+.principal-img-wrap {
+  aspect-ratio: 16/9;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
 .principal-img-real {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 4px;
+  display: block;
+}
+
+.card-img-wrap {
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  position: relative;
 }
 
 .card-img-real {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .list-item-thumb {
@@ -380,6 +394,14 @@ nav.main-menu a:hover {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 14px rgba(18, 24, 26, 0.1);
+  transform: translateY(-2px);
 }
 
 .card-img {
@@ -432,6 +454,8 @@ nav.main-menu a:hover {
   padding: 16px 0;
   border-bottom: 1px solid var(--borde);
   align-items: flex-start;
+  text-decoration: none;
+  color: inherit;
 }
 
 .list-item .meta {
@@ -813,6 +837,55 @@ footer.site-footer {
 }
 
 /* ================================================================
+   PÁGINA DE ARTÍCULO COMPLETO
+   ================================================================ */
+
+.articulo-wrap {
+  max-width: 760px;
+  padding-top: 32px;
+  padding-bottom: 60px;
+}
+
+.volver-link {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--piedra);
+  margin-bottom: 20px;
+}
+
+.volver-link:hover {
+  color: var(--coiron);
+}
+
+.articulo-img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+.articulo-titulo {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 14px 0 10px;
+}
+
+.articulo-cuerpo {
+  margin-top: 24px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--turba);
+}
+
+.articulo-cuerpo p {
+  margin: 0 0 18px;
+}
+
+/* ================================================================
    ANUNCIOS REALES (cuando hay imagen cargada)
    ================================================================ */
 
@@ -1073,6 +1146,28 @@ footer.site-footer {
   background: var(--glaciar-2);
   border: 1px solid var(--borde);
   flex-shrink: 0;
+  display: block;
+}
+
+.img-upload-preview-wrap {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+}
+
+.img-upload-spinner {
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 24, 26, 0.65);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-family: var(--font-mono);
+  border-radius: 4px;
+  text-align: center;
 }
 
 .img-upload-empty {

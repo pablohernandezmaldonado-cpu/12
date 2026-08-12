@@ -255,6 +255,15 @@ function NoticiaForm({
           />
         </label>
       )}
+      <label className="admin-field admin-field-wide">
+        <span>Contenido completo (lo que se ve al hacer clic en &quot;Leer más&quot;)</span>
+        <textarea
+          value={noticia.contenidoCompleto || ""}
+          onChange={(e) => onChange({ ...noticia, contenidoCompleto: e.target.value })}
+          rows={6}
+          placeholder="Escribe acá el artículo completo. Separa los párrafos dejando una línea en blanco entre ellos. Si lo dejas vacío, se muestra la bajada o el resumen."
+        />
+      </label>
     </div>
   );
 }
