@@ -14,6 +14,7 @@ import {
 import PublicidadSlot from "./components/PublicidadSlot";
 import ClimaWidget from "./components/ClimaWidget";
 import RelojPuntaArenas from "./components/RelojPuntaArenas";
+import SocialIcons from "./components/SocialIcons";
 import { generarSlug } from "../lib/slug";
 
 export default function Home() {
@@ -47,15 +48,32 @@ export default function Home() {
             </span>
           </a>
           <nav className="main-menu">
-            {menu.map((item) => (
-              <a key={item.nombre} href={item.href}>
-                {item.nombre}
-              </a>
-            ))}
+            {menu.map((item) => {
+              let href = item.href;
+              if (item.nombre === "Inicio") href = "/";
+              else if (item.nombre === "Contacto") href = "#contacto-footer";
+              else if (item.nombre === "Programación") href = "/programacion";
+              else if (categorias.some((c) => c.nombre === item.nombre)) {
+                href = `/categoria/${generarSlug(item.nombre)}`;
+              }
+              return (
+                <Link key={item.nombre} href={href}>
+                  {item.nombre}
+                </Link>
+              );
+            })}
           </nav>
-          <button className="btn-live">
-            <span className="dot" /> RADIO EN VIVO
-          </button>
+          <div className="header-right">
+            <SocialIcons contacto={contacto} className="header-social" />
+            <a
+              href={radio.urlStreaming || "#contacto-footer"}
+              target={radio.urlStreaming ? "_blank" : undefined}
+              rel="noreferrer"
+              className="btn-live"
+            >
+              <span className="dot" /> RADIO EN VIVO
+            </a>
+          </div>
         </div>
       </header>
 
@@ -90,7 +108,14 @@ export default function Home() {
             </div>
             <div className="radio-nombre">{radio.nombrePrograma}</div>
             <div className="radio-meta">Con {radio.locutor}</div>
-            <button className="play-btn">▶ ESCUCHAR EN VIVO</button>
+            <a
+              href={radio.urlStreaming || "#contacto-footer"}
+              target={radio.urlStreaming ? "_blank" : undefined}
+              rel="noreferrer"
+              className="play-btn"
+            >
+              ▶ ESCUCHAR EN VIVO
+            </a>
           </aside>
         </section>
 
@@ -164,9 +189,14 @@ export default function Home() {
           <h2 className="section-title">Secciones</h2>
           <div className="cat-row">
             {categorias.map((c) => (
-              <a className="cat-pill" style={{ background: c.color }} href="#" key={c.nombre}>
+              <Link
+                className="cat-pill"
+                style={{ background: c.color }}
+                href={`/categoria/${generarSlug(c.nombre)}`}
+                key={c.nombre}
+              >
                 {c.nombre}
-              </a>
+              </Link>
             ))}
           </div>
         </section>
@@ -228,7 +258,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="site-footer">
+      <footer className="site-footer" id="contacto-footer">
         <div className="wrap footer-inner">
           <div>
             <div className="logo logo-with-img" style={{ marginBottom: 12 }}>
@@ -248,12 +278,7 @@ export default function Home() {
           </div>
           <div>
             <h4>Síguenos</h4>
-            <p>
-              <a href={contacto.facebook}>Facebook</a>
-            </p>
-            <p>
-              <a href={contacto.instagram}>Instagram</a>
-            </p>
+            <SocialIcons contacto={contacto} className="footer-social" />
           </div>
         </div>
         <div className="wrap footer-bottom footer-bottom-row">

@@ -184,6 +184,43 @@ nav.main-menu a:hover {
   align-items: center;
   gap: 8px;
   white-space: nowrap;
+  text-decoration: none;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-icon-link {
+  color: var(--glaciar);
+  opacity: 0.85;
+  display: flex;
+  align-items: center;
+}
+
+.social-icon-link:hover {
+  opacity: 1;
+  color: var(--coiron);
+}
+
+.footer-social {
+  margin-top: 4px;
+}
+
+.footer-social .social-icon-link {
+  color: var(--glaciar-2);
+}
+
+.footer-social .social-icon-link:hover {
+  color: var(--coiron);
 }
 
 /* ---- Hero: noticia principal + radio ---- */
@@ -348,6 +385,7 @@ nav.main-menu a:hover {
   display: flex;
   align-items: center;
   gap: 10px;
+  text-decoration: none;
   justify-content: center;
 }
 
