@@ -70,81 +70,31 @@
     }
   ],
   "categorias": [
-    {
-      "nombre": "Regional",
-      "color": "#2F4B3C"
-    },
-    {
-      "nombre": "Policial",
-      "color": "#7A342A"
-    },
-    {
-      "nombre": "Política",
-      "color": "#1B3A4B"
-    },
-    {
-      "nombre": "Deportes",
-      "color": "#C9832F"
-    },
-    {
-      "nombre": "Económica",
-      "color": "#4A4E52"
-    },
-    {
-      "nombre": "Cultura",
-      "color": "#6B4A7A"
-    },
-    {
-      "nombre": "Salud",
-      "color": "#2F6B5E"
-    }
+    { "nombre": "Regional", "color": "#2F4B3C" },
+    { "nombre": "Policial", "color": "#7A342A" },
+    { "nombre": "Política", "color": "#1B3A4B" },
+    { "nombre": "Deportes", "color": "#C9832F" },
+    { "nombre": "Económica", "color": "#4A4E52" },
+    { "nombre": "Cultura", "color": "#6B4A7A" },
+    { "nombre": "Salud", "color": "#2F6B5E" }
   ],
   "menu": [
-    {
-      "nombre": "Inicio",
-      "href": "#"
-    },
-    {
-      "nombre": "Regional",
-      "href": "#"
-    },
-    {
-      "nombre": "Policial",
-      "href": "#"
-    },
-    {
-      "nombre": "Política",
-      "href": "#"
-    },
-    {
-      "nombre": "Deportes",
-      "href": "#"
-    },
-    {
-      "nombre": "Económica",
-      "href": "#"
-    },
-    {
-      "nombre": "Cultura",
-      "href": "#"
-    },
-    {
-      "nombre": "Programación",
-      "href": "#"
-    },
-    {
-      "nombre": "Contacto",
-      "href": "#"
-    }
+    { "nombre": "Inicio", "href": "#" },
+    { "nombre": "Regional", "href": "#" },
+    { "nombre": "Policial", "href": "#" },
+    { "nombre": "Política", "href": "#" },
+    { "nombre": "Deportes", "href": "#" },
+    { "nombre": "Económica", "href": "#" },
+    { "nombre": "Cultura", "href": "#" },
+    { "nombre": "Programación", "href": "#" },
+    { "nombre": "Contacto", "href": "#" }
   ],
   "publicidad": [],
   "streamingCanales": [
-    {
-      "id": "canal-1",
-      "titulo": "MEGA",
-      "url": "https://www.youtube.com/watch?v=5MZkZDPofK0&list=RD5MZkZDPofK0&start_radio=1",
-      "logoUrl": ""
-    }
+    { "id": "canal-1", "titulo": "Canal 1", "url": "", "logoUrl": "" },
+    { "id": "canal-2", "titulo": "Canal 2", "url": "", "logoUrl": "" },
+    { "id": "canal-3", "titulo": "Canal 3", "url": "", "logoUrl": "" },
+    { "id": "canal-4", "titulo": "Canal 4", "url": "", "logoUrl": "" }
   ],
   "contacto": {
     "direccion": "Coyhaique, Región de Aysén, Chile",

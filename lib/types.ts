@@ -32,6 +32,7 @@ export interface CanalStreaming {
   titulo: string;
   url: string;
   logoUrl?: string;
+  enlaceOficial?: string;
 }
 
 export interface Categoria {

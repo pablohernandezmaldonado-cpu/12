@@ -1072,6 +1072,20 @@ footer.site-footer {
   padding: 24px;
 }
 
+.tv-oficial-link {
+  display: block;
+  text-align: center;
+  padding: 8px;
+  font-size: 12px;
+  font-family: var(--font-mono);
+  color: var(--coiron);
+  border-top: 1px solid #2a3033;
+}
+
+.tv-oficial-link:hover {
+  background: rgba(201, 131, 47, 0.1);
+}
+
 .clima-widget {
   background: #fff;
   border: 1px solid var(--borde);

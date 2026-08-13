@@ -646,6 +646,13 @@ function StreamingTab({
         copia solo la URL que está dentro de <code>src=&quot;...&quot;</code> (algo como{" "}
         <code>https://www.youtube.com/embed/XXXXXXXXXXX</code>).
       </p>
+      <p className="admin-hint">
+        ⚠️ Ojo: algunos canales (Mega, Canal 13, TVN, Chilevisión, etc.) bloquean a propósito que
+        su señal se inserte en otras páginas — no hay forma de evitar eso desde acá. Para esos
+        casos, agrega el &quot;Enlace oficial de respaldo&quot; de cada canal: aunque el video no se
+        vea adentro de tu sitio, va a aparecer un botón para que la gente lo vea en la página
+        oficial del canal, en una pestaña nueva.
+      </p>
 
       {canales.map((canal, i) => (
         <div className="admin-card-edit" key={canal.id}>
@@ -660,6 +667,14 @@ function StreamingTab({
                 value={canal.url}
                 onChange={(e) => updateAt(i, { url: e.target.value })}
                 placeholder="https://www.youtube.com/embed/XXXXXXXXXXX"
+              />
+            </label>
+            <label className="admin-field admin-field-wide">
+              <span>Enlace oficial de respaldo (opcional, pero muy recomendado)</span>
+              <input
+                value={canal.enlaceOficial || ""}
+                onChange={(e) => updateAt(i, { enlaceOficial: e.target.value })}
+                placeholder="https://www.mega.cl/en-vivo"
               />
             </label>
             <div className="admin-field admin-field-wide">

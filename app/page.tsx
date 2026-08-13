@@ -142,6 +142,11 @@ export default function Home() {
                 ) : (
                   <div className="tv-placeholder">Sin señal configurada</div>
                 )}
+                {canal.enlaceOficial && (
+                  <a href={canal.enlaceOficial} target="_blank" rel="noreferrer" className="tv-oficial-link">
+                    Ver en el sitio oficial ↗
+                  </a>
+                )}
               </div>
             ))}
           </div>
