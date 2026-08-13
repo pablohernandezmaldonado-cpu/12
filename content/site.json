@@ -142,25 +142,7 @@
     {
       "id": "canal-1",
       "titulo": "MEGA",
-      "url": "https://www.youtube.com/watch?v=tJseq85Obzc",
-      "logoUrl": ""
-    },
-    {
-      "id": "canal-2",
-      "titulo": "Canal 2",
-      "url": "",
-      "logoUrl": ""
-    },
-    {
-      "id": "canal-3",
-      "titulo": "Canal 3",
-      "url": "",
-      "logoUrl": ""
-    },
-    {
-      "id": "canal-4",
-      "titulo": "Canal 4",
-      "url": "",
+      "url": "https://www.youtube.com/watch?v=5MZkZDPofK0&list=RD5MZkZDPofK0&start_radio=1",
       "logoUrl": ""
     }
   ],
