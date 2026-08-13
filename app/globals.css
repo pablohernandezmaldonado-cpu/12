@@ -20,9 +20,12 @@
 }
 
 html,
+html,
 body {
   padding: 0;
   margin: 0;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -31,6 +34,7 @@ body {
   font-family: var(--font-body);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  word-break: break-word;
 }
 
 a {
@@ -342,6 +346,20 @@ nav.main-menu a:hover {
 }
 
 /* ---- Panel de radio ---- */
+.hero-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ad-lateral-stack .ad-real-wrap {
+  flex-direction: column;
+}
+
+.ad-lateral-stack .ad-real-card {
+  flex-basis: auto;
+}
+
 .radio-panel {
   background: var(--fiordo);
   color: var(--glaciar);

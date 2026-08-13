@@ -102,21 +102,24 @@ export default function Home() {
             </Link>
           </div>
 
-          <aside className="radio-panel">
-            <div className="radio-status">
-              <span className="dot" /> {radio.enVivo ? "EN VIVO" : "FUERA DE AIRE"}
-            </div>
-            <div className="radio-nombre">{radio.nombrePrograma}</div>
-            <div className="radio-meta">Con {radio.locutor}</div>
-            <a
-              href={radio.urlStreaming || "#contacto-footer"}
-              target={radio.urlStreaming ? "_blank" : undefined}
-              rel="noreferrer"
-              className="play-btn"
-            >
-              ▶ ESCUCHAR EN VIVO
-            </a>
-          </aside>
+          <div className="hero-sidebar">
+            <aside className="radio-panel">
+              <div className="radio-status">
+                <span className="dot" /> {radio.enVivo ? "EN VIVO" : "FUERA DE AIRE"}
+              </div>
+              <div className="radio-nombre">{radio.nombrePrograma}</div>
+              <div className="radio-meta">Con {radio.locutor}</div>
+              <a
+                href={radio.urlStreaming || "#contacto-footer"}
+                target={radio.urlStreaming ? "_blank" : undefined}
+                rel="noreferrer"
+                className="play-btn"
+              >
+                ▶ ESCUCHAR EN VIVO
+              </a>
+            </aside>
+            <PublicidadSlot tipo="lateral" items={publicidad} className="ad-lateral ad-lateral-stack" />
+          </div>
         </section>
 
         {/* Streaming de TV (varias señales) + Clima */}
@@ -212,40 +215,37 @@ export default function Home() {
         {/* Publicidad para celular (solo visible en pantallas chicas) */}
         <PublicidadSlot tipo="celular" items={publicidad} className="ad-mobile-only ad-banner" />
 
-        {/* Últimas noticias + banner lateral */}
-        <section className="section noticias-lateral-row">
-          <div>
-            <h2 className="section-title">
-              Últimas noticias <small>actualizado {noticiaPrincipal.fecha}</small>
-            </h2>
-            <div className="list-noticias">
-              {ultimasNoticias.map((n) => {
-                const color =
-                  categorias.find((c) => c.nombre === n.categoria)?.color ?? "#2F4B3C";
-                return (
-                  <Link href={`/noticia/${generarSlug(n.titulo)}`} className="list-item" key={n.titulo}>
-                    <span className="meta">
-                      {n.hora} · {n.fecha.slice(0, 6)}
+        {/* Últimas noticias */}
+        <section className="section">
+          <h2 className="section-title">
+            Últimas noticias <small>actualizado {noticiaPrincipal.fecha}</small>
+          </h2>
+          <div className="list-noticias">
+            {ultimasNoticias.map((n) => {
+              const color =
+                categorias.find((c) => c.nombre === n.categoria)?.color ?? "#2F4B3C";
+              return (
+                <Link href={`/noticia/${generarSlug(n.titulo)}`} className="list-item" key={n.titulo}>
+                  <span className="meta">
+                    {n.hora} · {n.fecha.slice(0, 6)}
+                  </span>
+                  {n.imagenUrl ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={n.imagenUrl} alt={n.titulo} className="list-item-thumb" />
+                  ) : (
+                    <div className="list-item-thumb list-item-thumb-empty" />
+                  )}
+                  <div>
+                    <span className="tag" style={{ background: color, marginBottom: 6 }}>
+                      {n.categoria}
                     </span>
-                    {n.imagenUrl ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img src={n.imagenUrl} alt={n.titulo} className="list-item-thumb" />
-                    ) : (
-                      <div className="list-item-thumb list-item-thumb-empty" />
-                    )}
-                    <div>
-                      <span className="tag" style={{ background: color, marginBottom: 6 }}>
-                        {n.categoria}
-                      </span>
-                      <h3 className="card-title">{n.titulo}</h3>
-                      <p className="card-resumen">{n.resumen}</p>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
+                    <h3 className="card-title">{n.titulo}</h3>
+                    <p className="card-resumen">{n.resumen}</p>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
-          <PublicidadSlot tipo="lateral" items={publicidad} className="ad-lateral" />
         </section>
 
         {/* Publicidad destacada */}
