@@ -1270,3 +1270,8 @@ footer.site-footer {
 .img-upload-status.err {
   color: var(--alerta);
 }
+
+.img-upload-status.ok {
+  color: var(--alerce);
+  font-weight: 600;
+}

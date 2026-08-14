@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { isAuthenticated } from "../../../../lib/auth";
 import { uploadBinaryFileToGithub } from "../../../../lib/github";
 
-const MAX_BYTES = 4 * 1024 * 1024; // 4 MB
+const MAX_BYTES = 8 * 1024 * 1024; // 8 MB (las fotos ya llegan optimizadas desde el navegador)
 
 function sanitizeName(name: string): string {
   return name
