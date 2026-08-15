@@ -305,6 +305,24 @@ nav.main-menu a:hover {
   );
 }
 
+.texto-centrado {
+  text-align: center;
+}
+
+.texto-centrado .principal-img-wrap,
+.texto-centrado .principal-img,
+.texto-centrado .articulo-img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.texto-centrado .eyebrow,
+.texto-centrado .leer-mas,
+.texto-centrado .tag {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -812,6 +830,11 @@ footer.site-footer {
 
 .admin-toggle-field {
   justify-content: center;
+}
+
+.admin-toggle-field-inline {
+  flex-direction: row;
+  align-items: center;
 }
 
 .admin-toggle {

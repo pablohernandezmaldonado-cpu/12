@@ -37,28 +37,30 @@ export default function NoticiaPage({ params }: { params: { slug: string } }) {
           ← Volver a portada
         </Link>
 
-        {noticia.imagenUrl && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={noticia.imagenUrl}
-            alt={noticia.imagenAlt || noticia.titulo}
-            className="articulo-img"
-          />
-        )}
-
-        <span className="tag" style={{ background: color, marginTop: 18 }}>
-          {noticia.categoria}
-        </span>
-        <h1 className="articulo-titulo">{noticia.titulo}</h1>
-        <div className="meta">
-          {noticia.fecha}
-          {noticia.hora ? ` · ${noticia.hora}` : ""}
-        </div>
-
-        <div className="articulo-cuerpo">
-          {cuerpo.split("\n").map((parrafo, i) =>
-            parrafo.trim() ? <p key={i}>{parrafo}</p> : null
+        <div className={noticia.centrado ? "texto-centrado" : ""}>
+          {noticia.imagenUrl && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={noticia.imagenUrl}
+              alt={noticia.imagenAlt || noticia.titulo}
+              className="articulo-img"
+            />
           )}
+
+          <span className="tag" style={{ background: color, marginTop: 18 }}>
+            {noticia.categoria}
+          </span>
+          <h1 className="articulo-titulo">{noticia.titulo}</h1>
+          <div className="meta">
+            {noticia.fecha}
+            {noticia.hora ? ` · ${noticia.hora}` : ""}
+          </div>
+
+          <div className="articulo-cuerpo">
+            {cuerpo.split("\n").map((parrafo, i) =>
+              parrafo.trim() ? <p key={i}>{parrafo}</p> : null
+            )}
+          </div>
         </div>
       </main>
 

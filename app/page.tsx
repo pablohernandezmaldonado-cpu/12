@@ -80,7 +80,7 @@ export default function Home() {
       <main className="wrap">
         {/* Hero: noticia principal + radio */}
         <section className="hero">
-          <div>
+          <div className={noticiaPrincipal.centrado ? "texto-centrado" : ""}>
             {noticiaPrincipal.imagenUrl ? (
               <div className="principal-img-wrap">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -178,7 +178,7 @@ export default function Home() {
                   ) : (
                     <div className="card-img" />
                   )}
-                  <div className="card-body">
+                  <div className={`card-body ${n.centrado ? "texto-centrado" : ""}`}>
                     <span className="tag" style={{ background: color }}>
                       {n.categoria}
                     </span>

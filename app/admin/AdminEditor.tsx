@@ -274,6 +274,16 @@ function NoticiaForm({
           />
         </label>
       )}
+      <label className="admin-field admin-field-wide admin-toggle-field-inline">
+        <label className="admin-toggle">
+          <input
+            type="checkbox"
+            checked={!!noticia.centrado}
+            onChange={(e) => onChange({ ...noticia, centrado: e.target.checked })}
+          />
+          Centrar el texto (título, bajada y fecha)
+        </label>
+      </label>
       <label className="admin-field admin-field-wide">
         <span>Contenido completo (lo que se ve al hacer clic en &quot;Leer más&quot;)</span>
         <textarea
