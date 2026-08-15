@@ -7,6 +7,37 @@ export function githubConfigured(): boolean {
   return !!(process.env.GITHUB_OWNER && process.env.GITHUB_REPO && process.env.GITHUB_TOKEN);
 }
 
+// Lee y devuelve el contenido ya parseado (JSON) de un archivo del repositorio.
+export async function readFileFromGithub<T>(path: string): Promise<T> {
+  const OWNER = process.env.GITHUB_OWNER;
+  const REPO = process.env.GITHUB_REPO;
+  const BRANCH = process.env.GITHUB_BRANCH || "main";
+  const TOKEN = process.env.GITHUB_TOKEN;
+
+  if (!OWNER || !REPO || !TOKEN) {
+    throw new Error(
+      "Faltan variables de entorno GITHUB_OWNER, GITHUB_REPO o GITHUB_TOKEN en Vercel."
+    );
+  }
+
+  const apiUrl = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${path}`;
+  const res = await fetch(`${apiUrl}?ref=${BRANCH}`, {
+    headers: {
+      Authorization: `Bearer ${TOKEN}`,
+      Accept: "application/vnd.github+json",
+    },
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    throw new Error(`No se pudo leer ${path} en GitHub: ${await res.text()}`);
+  }
+
+  const data = await res.json();
+  const contenido = Buffer.from(data.content, "base64").toString("utf-8");
+  return JSON.parse(contenido) as T;
+}
+
 export async function writeFileToGithub(path: string, data: unknown, commitMessage: string): Promise<void> {
   const OWNER = process.env.GITHUB_OWNER;
   const REPO = process.env.GITHUB_REPO;

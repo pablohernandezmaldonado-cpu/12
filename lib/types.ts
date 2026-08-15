@@ -8,6 +8,7 @@ export interface Noticia {
   imagenAlt?: string;
   imagenUrl?: string;
   contenidoCompleto?: string;
+  fbPostId?: string;
 }
 
 export type TipoPublicidad =

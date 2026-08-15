@@ -5,13 +5,23 @@ import { useRouter } from "next/navigation";
 import type { SiteData, Noticia, Categoria, MenuItem, PublicidadItem, TipoPublicidad } from "../../lib/types";
 import ImageUploadField from "./ImageUploadField";
 
-type Tab = "noticias" | "radio" | "publicidad" | "streaming" | "categorias" | "menu" | "contacto" | "cuenta";
+type Tab =
+  | "noticias"
+  | "radio"
+  | "publicidad"
+  | "streaming"
+  | "facebook"
+  | "categorias"
+  | "menu"
+  | "contacto"
+  | "cuenta";
 
 const TABS: { id: Tab; label: string }[] = [
   { id: "noticias", label: "Noticias" },
   { id: "radio", label: "Radio" },
   { id: "publicidad", label: "Publicidad" },
   { id: "streaming", label: "Streaming" },
+  { id: "facebook", label: "Facebook" },
   { id: "categorias", label: "Categorías" },
   { id: "menu", label: "Menú" },
   { id: "contacto", label: "Contacto" },
@@ -101,6 +111,7 @@ export default function AdminEditor({ initialData }: { initialData: SiteData }) 
           {tab === "radio" && <RadioTab data={data} setData={setData} />}
           {tab === "publicidad" && <PublicidadTab data={data} setData={setData} />}
           {tab === "streaming" && <StreamingTab data={data} setData={setData} />}
+          {tab === "facebook" && <FacebookTab />}
           {tab === "categorias" && <CategoriasTab data={data} setData={setData} />}
           {tab === "menu" && <MenuTab data={data} setData={setData} />}
           {tab === "contacto" && <ContactoTab data={data} setData={setData} />}
@@ -703,6 +714,72 @@ function StreamingTab({
       <button className="btn-secondary" onClick={add}>
         + Agregar señal
       </button>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------
+// FACEBOOK — sincronización automática de publicaciones
+// ---------------------------------------------------------------
+function FacebookTab() {
+  const [status, setStatus] = useState<
+    | { type: "idle" }
+    | { type: "cargando" }
+    | { type: "ok"; nuevos: number }
+    | { type: "error"; msg: string }
+  >({ type: "idle" });
+
+  async function sincronizarAhora() {
+    setStatus({ type: "cargando" });
+    try {
+      const res = await fetch("/api/admin/facebook-sync", { method: "POST" });
+      const result = await res.json();
+      if (!result.ok) {
+        setStatus({ type: "error", msg: result.error || "No se pudo sincronizar." });
+        return;
+      }
+      setStatus({ type: "ok", nuevos: result.nuevos });
+      if (result.nuevos > 0) {
+        setTimeout(() => window.location.reload(), 2000);
+      }
+    } catch {
+      setStatus({ type: "error", msg: "No se pudo conectar con el servidor." });
+    }
+  }
+
+  return (
+    <div>
+      <h2 className="admin-h2">Sincronización con Facebook</h2>
+      <p className="admin-hint">
+        El sitio revisa tu página de Facebook <strong>una vez al día, automáticamente</strong>, y
+        agrega como &quot;Última noticia&quot; cualquier publicación nueva que tenga texto. Vos
+        después puedes entrar a la pestaña &quot;Noticias&quot; para pulirla, cambiarle la
+        categoría, o destacarla.
+      </p>
+      <p className="admin-hint">
+        Esto requiere haber configurado <code>FACEBOOK_PAGE_ID</code> y{" "}
+        <code>FACEBOOK_PAGE_ACCESS_TOKEN</code> en Vercel — si no lo has hecho, pídele a quien te
+        armó el sitio la guía de configuración.
+      </p>
+
+      <button className="btn-secondary" onClick={sincronizarAhora} disabled={status.type === "cargando"}>
+        {status.type === "cargando" ? "Sincronizando..." : "Sincronizar ahora"}
+      </button>
+
+      {status.type === "ok" && (
+        <p className="admin-ok" style={{ marginTop: 12 }}>
+          {status.nuevos === 0
+            ? "No hay publicaciones nuevas por ahora."
+            : `Se agregaron ${status.nuevos} noticia${status.nuevos === 1 ? "" : "s"} nueva${
+                status.nuevos === 1 ? "" : "s"
+              }. Recargando la página...`}
+        </p>
+      )}
+      {status.type === "error" && (
+        <p className="admin-error" style={{ marginTop: 12 }}>
+          {status.msg}
+        </p>
+      )}
     </div>
   );
 }
