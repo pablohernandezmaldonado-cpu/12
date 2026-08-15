@@ -17,6 +17,15 @@ import RelojPuntaArenas from "./components/RelojPuntaArenas";
 import SocialIcons from "./components/SocialIcons";
 import { generarSlug } from "../lib/slug";
 
+// Si alguien pega un link sin "https://" al principio (ej: pegado a
+// mano en el panel), esto evita que el navegador lo confunda con una
+// ruta interna del propio sitio.
+function urlCompleta(url: string): string {
+  const limpia = url.trim();
+  if (!limpia) return limpia;
+  return /^https?:\/\//i.test(limpia) ? limpia : `https://${limpia}`;
+}
+
 export default function Home() {
   return (
     <>
@@ -66,7 +75,7 @@ export default function Home() {
           <div className="header-right">
             <SocialIcons contacto={contacto} className="header-social" />
             <a
-              href={radio.urlStreaming || "#contacto-footer"}
+              href={radio.urlStreaming ? urlCompleta(radio.urlStreaming) : "#contacto-footer"}
               target={radio.urlStreaming ? "_blank" : undefined}
               rel="noreferrer"
               className="btn-live"
@@ -110,7 +119,7 @@ export default function Home() {
               <div className="radio-nombre">{radio.nombrePrograma}</div>
               <div className="radio-meta">Con {radio.locutor}</div>
               <a
-                href={radio.urlStreaming || "#contacto-footer"}
+                href={radio.urlStreaming ? urlCompleta(radio.urlStreaming) : "#contacto-footer"}
                 target={radio.urlStreaming ? "_blank" : undefined}
                 rel="noreferrer"
                 className="play-btn"
@@ -136,7 +145,7 @@ export default function Home() {
                 </div>
                 {canal.url ? (
                   <iframe
-                    src={canal.url}
+                    src={urlCompleta(canal.url)}
                     title={canal.titulo}
                     className="tv-iframe"
                     allow="autoplay; encrypted-media; picture-in-picture"
@@ -146,7 +155,12 @@ export default function Home() {
                   <div className="tv-placeholder">Sin señal configurada</div>
                 )}
                 {canal.enlaceOficial && (
-                  <a href={canal.enlaceOficial} target="_blank" rel="noreferrer" className="tv-oficial-link">
+                  <a
+                    href={urlCompleta(canal.enlaceOficial)}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="tv-oficial-link"
+                  >
                     Ver en el sitio oficial ↗
                   </a>
                 )}

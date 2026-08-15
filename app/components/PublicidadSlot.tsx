@@ -1,5 +1,11 @@
 import type { PublicidadItem, TipoPublicidad } from "../../lib/types";
 
+function urlCompleta(url: string): string {
+  const limpia = url.trim();
+  if (!limpia) return limpia;
+  return /^https?:\/\//i.test(limpia) ? limpia : `https://${limpia}`;
+}
+
 const ETIQUETAS: Record<TipoPublicidad, string> = {
   "banner-superior": "BANNER SUPERIOR (940 × 110)",
   lateral: "BANNER LATERAL",
@@ -43,7 +49,7 @@ export default function PublicidadSlot({
           </>
         );
         return item.enlace ? (
-          <a key={item.id} href={item.enlace} target="_blank" rel="noreferrer" className="ad-real-card">
+          <a key={item.id} href={urlCompleta(item.enlace)} target="_blank" rel="noreferrer" className="ad-real-card">
             {contenido}
           </a>
         ) : (
