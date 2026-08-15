@@ -143,9 +143,10 @@
   "streamingCanales": [
     {
       "id": "canal-1",
-      "titulo": "Canal 1",
-      "url": "",
-      "logoUrl": ""
+      "titulo": "Canal Mega",
+      "url": "https://www.youtube.com/watch?v=jxYKg2GKvSc",
+      "logoUrl": "/uploads/canales/1786759900037-2zrirt-images.jpg",
+      "enlaceOficial": "https://www.youtube.com/watch?v=jxYKg2GKvSc"
     },
     {
       "id": "canal-2",
