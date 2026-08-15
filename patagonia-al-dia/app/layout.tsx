@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Fraunces, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -46,7 +45,6 @@ export default function RootLayout({
         className={`${fraunces.variable} ${plexSans.variable} ${plexMono.variable}`}
       >
         {children}
-        <Analytics />
       </body>
     </html>
   );

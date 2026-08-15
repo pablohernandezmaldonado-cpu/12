@@ -69,14 +69,6 @@ export default function AdminEditor({ initialData }: { initialData: SiteData }) 
           <a href="/" target="_blank" rel="noreferrer" className="admin-link">
             Ver sitio ↗
           </a>
-          <a
-            href="https://vercel.com/dashboard"
-            target="_blank"
-            rel="noreferrer"
-            className="admin-link"
-          >
-            Ver estadísticas ↗
-          </a>
           <button className="btn-secondary" onClick={handleLogout}>
             Cerrar sesión
           </button>
