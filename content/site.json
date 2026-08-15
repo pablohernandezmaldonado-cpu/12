@@ -14,10 +14,12 @@
   },
   "noticiaPrincipal": {
     "categoria": "Regional",
-    "titulo": "Avanzan trabajos en la Carretera Austral tras las últimas lluvias en Aysén",
-    "bajada": "Vialidad informó que los tramos afectados entre Coyhaique y Puerto Aysén quedarán habilitados durante la semana, restableciendo el tránsito normal.",
-    "fecha": "11 de agosto de 2026",
-    "imagenAlt": "Carretera Austral en la Región de Aysén"
+    "titulo": "📰 Gobierno Regional de Aysén entrega nuevo bus a la Banda Instrumental de Carabineros",
+    "bajada": "El Gobierno Regional de Aysén concretó la entrega de un moderno bus Mercedes Benz a la Banda Instrumental de la Prefectura de Carabineros Aysén, con el objetivo de mejorar sus condiciones de traslado y fortalecer su presencia en las diez comunas de la región.\n\nEl vehículo fue adquirido con recursos del Fondo Rotativo de Abastecimiento (FORA) y permitirá que los 17 músicos de la agrupación puedan desplazarse con mayor seguridad, comodidad y mejores condiciones operativas por el territorio patagónico. ",
+    "fecha": "15 de agosto de 2026",
+    "imagenAlt": "Carretera Austral en la Región de Aysén",
+    "contenidoCompleto": "Autoridades destacaron su importancia.\n\nEl gobernador regional de Aysén, Marcelo Santana Vargas, destacó que la renovación del vehículo permitirá que la banda continúe llevando cultura e integración a distintos puntos de la región.\n\nEl prefecto de Carabineros Aysén, coronel Juan Abarca Hernández, señaló que el antiguo bus presentaba fallas permanentes y valoró que el nuevo vehículo permitirá llegar a sectores apartados para llevar música, cultura y compañía a las comunidades.\n\nPor su parte, el consejero regional y presidente de la Comisión de Seguridad del CORE, Rocco Martiniello Ávila, destacó que la iniciativa representa una herramienta de integración territorial y apoyo a la labor preventiva y comunitaria.\n\n🎺 Una agrupación con 97 años de historia.\n\nLa Banda Instrumental de Carabineros fue fundada el 24 de abril de 1929 por iniciativa del entonces general de Carabineros y primer intendente de Aysén, Luis Marchant González.\n\nSu primera presentación pública se realizó el 21 de mayo de 1929, durante el izamiento del Pabellón Nacional. Ese mismo año, sus integrantes participaron en actividades vinculadas a la fundación de la localidad de Baquedano, actual Coyhaique.\n\nDurante sus 97 años de trayectoria, la agrupación ha recibido diversos reconocimientos por su aporte a la identidad y patrimonio cultural de la Región de Aysén, siendo considerada la banda instrumental más antigua de Chile.\n\nEntre sus reconocimientos se encuentran el título de “Gran pionero de la cuenca del Baker”, otorgado por la Municipalidad de Cochrane en 1992; el reconocimiento como “Banda Benemérita” y patrimonio histórico-cultural por la Municipalidad de Aysén en 1993, y una distinción del Consejo Asesor Regional de Monumentos Nacionales en 2006.",
+    "imagenUrl": "/uploads/noticias/1786759610927-dvoeo8-208d531f-db09-4aa3-b470-e35fadb6ae55.jpg"
   },
   "destacadas": [
     {
@@ -70,38 +72,106 @@
     }
   ],
   "categorias": [
-    { "nombre": "Regional", "color": "#2F4B3C" },
-    { "nombre": "Policial", "color": "#7A342A" },
-    { "nombre": "Política", "color": "#1B3A4B" },
-    { "nombre": "Deportes", "color": "#C9832F" },
-    { "nombre": "Económica", "color": "#4A4E52" },
-    { "nombre": "Cultura", "color": "#6B4A7A" },
-    { "nombre": "Salud", "color": "#2F6B5E" }
+    {
+      "nombre": "Regional",
+      "color": "#2F4B3C"
+    },
+    {
+      "nombre": "Policial",
+      "color": "#7A342A"
+    },
+    {
+      "nombre": "Política",
+      "color": "#1B3A4B"
+    },
+    {
+      "nombre": "Deportes",
+      "color": "#C9832F"
+    },
+    {
+      "nombre": "Económica",
+      "color": "#4A4E52"
+    },
+    {
+      "nombre": "Cultura",
+      "color": "#6B4A7A"
+    },
+    {
+      "nombre": "Salud",
+      "color": "#2F6B5E"
+    }
   ],
   "menu": [
-    { "nombre": "Inicio", "href": "#" },
-    { "nombre": "Regional", "href": "#" },
-    { "nombre": "Policial", "href": "#" },
-    { "nombre": "Política", "href": "#" },
-    { "nombre": "Deportes", "href": "#" },
-    { "nombre": "Económica", "href": "#" },
-    { "nombre": "Cultura", "href": "#" },
-    { "nombre": "Programación", "href": "#" },
-    { "nombre": "Contacto", "href": "#" }
+    {
+      "nombre": "Inicio",
+      "href": "#"
+    },
+    {
+      "nombre": "Regional",
+      "href": "#"
+    },
+    {
+      "nombre": "Policial",
+      "href": "#"
+    },
+    {
+      "nombre": "Política",
+      "href": "#"
+    },
+    {
+      "nombre": "Deportes",
+      "href": "#"
+    },
+    {
+      "nombre": "Económica",
+      "href": "#"
+    },
+    {
+      "nombre": "Cultura",
+      "href": "#"
+    },
+    {
+      "nombre": "Programación",
+      "href": "#"
+    },
+    {
+      "nombre": "Contacto",
+      "href": "#"
+    }
   ],
   "publicidad": [],
   "streamingCanales": [
-    { "id": "canal-1", "titulo": "Canal 1", "url": "", "logoUrl": "" },
-    { "id": "canal-2", "titulo": "Canal 2", "url": "", "logoUrl": "" },
-    { "id": "canal-3", "titulo": "Canal 3", "url": "", "logoUrl": "" },
-    { "id": "canal-4", "titulo": "Canal 4", "url": "", "logoUrl": "" }
+    {
+      "id": "canal-1",
+      "titulo": "Canal 1",
+      "url": "",
+      "logoUrl": ""
+    },
+    {
+      "id": "canal-2",
+      "titulo": "Canal 2",
+      "url": "",
+      "logoUrl": ""
+    },
+    {
+      "id": "canal-3",
+      "titulo": "Canal 3",
+      "url": "",
+      "logoUrl": ""
+    },
+    {
+      "id": "canal-4",
+      "titulo": "Canal 4",
+      "url": "",
+      "logoUrl": ""
+    }
   ],
   "contacto": {
     "direccion": "Coyhaique, Región de Aysén, Chile",
     "telefono": "+56 9 0000 0000",
     "whatsapp": "+56 9 0000 0000",
-    "email": "contacto@patagoniaaldia.cl",
-    "facebook": "https://facebook.com/patagoniaaldia",
-    "instagram": "https://instagram.com/patagoniaaldia"
+    "email": "patagonialdia@gmail.com",
+    "facebook": "https://www.facebook.com/patagonialdia",
+    "instagram": "patagonialdia@gmail.com"
   }
 }
