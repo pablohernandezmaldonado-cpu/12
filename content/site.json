@@ -16,7 +16,7 @@
     "categoria": "Regional",
     "titulo": "Gobierno Regional de Aysén entrega nuevo bus a la Banda Instrumental de Carabineros.",
     "bajada": "El Gobierno Regional de Aysén concretó la entrega de un moderno bus Mercedes Benz a la Banda Instrumental de la Prefectura de Carabineros Aysén, con el objetivo de mejorar sus condiciones de traslado y fortalecer su presencia en las diez comunas de la región.\n\nEl vehículo fue adquirido con recursos del Fondo Rotativo de Abastecimiento (FORA) y permitirá que los 17 músicos de la agrupación puedan desplazarse con mayor seguridad, comodidad y mejores condiciones operativas por el territorio patagónico.",
-    "fecha": "11 de agosto de 2026",
+    "fecha": "15 de agosto de 2026",
     "imagenAlt": "Carretera Austral en la Región de Aysén",
     "imagenUrl": "/uploads/noticias/1786762228145-44rius-208d531f-db09-4aa3-b470-e35fadb6ae55.jpg",
     "centrado": false,
@@ -151,9 +151,9 @@
     {
       "id": "canal-2",
       "titulo": "CNN",
-      "url": "https://www.youtube.com/embed/live_stream?channel=UC_lEiu6917IJz03TnntWUaQ",
-      "logoUrl": "/uploads/canales/1786763075811-btbcja-images.png",
-      "enlaceOficial": "https://www.youtube.com/embed/live_stream?channel=UC_lEiu6917IJz03TnntWUaQ"
+      "url": "https://www.youtube.com/watch?v=EqSqdZfudso",
+      "logoUrl": "/uploads/canales/1786763539454-xnxm4q-03-201153-a83b-chilevision-1600x900.jpg",
+      "enlaceOficial": ""
     },
     {
       "id": "canal-3",
