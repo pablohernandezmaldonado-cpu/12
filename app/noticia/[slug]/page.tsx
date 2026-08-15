@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { site, noticiaPrincipal, destacadas, ultimasNoticias, categorias } from "../../content";
 import { generarSlug } from "../../../lib/slug";
+import { conFormato } from "../../../lib/formato";
 import type { Noticia } from "../../../lib/types";
 
 function todasLasNoticias(): Noticia[] {
@@ -50,7 +51,7 @@ export default function NoticiaPage({ params }: { params: { slug: string } }) {
           <span className="tag" style={{ background: color, marginTop: 18 }}>
             {noticia.categoria}
           </span>
-          <h1 className="articulo-titulo">{noticia.titulo}</h1>
+          <h1 className="articulo-titulo">{conFormato(noticia.titulo)}</h1>
           <div className="meta">
             {noticia.fecha}
             {noticia.hora ? ` · ${noticia.hora}` : ""}
@@ -58,7 +59,7 @@ export default function NoticiaPage({ params }: { params: { slug: string } }) {
 
           <div className="articulo-cuerpo">
             {cuerpo.split("\n").map((parrafo, i) =>
-              parrafo.trim() ? <p key={i}>{parrafo}</p> : null
+              parrafo.trim() ? <p key={i}>{conFormato(parrafo)}</p> : null
             )}
           </div>
         </div>

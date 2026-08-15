@@ -16,6 +16,7 @@ import ClimaWidget from "./components/ClimaWidget";
 import RelojPuntaArenas from "./components/RelojPuntaArenas";
 import SocialIcons from "./components/SocialIcons";
 import { generarSlug } from "../lib/slug";
+import { conFormato } from "../lib/formato";
 
 // Si alguien pega un link sin "https://" al principio (ej: pegado a
 // mano en el panel), esto evita que el navegador lo confunda con una
@@ -103,8 +104,8 @@ export default function Home() {
               <div className="principal-img" aria-label={noticiaPrincipal.imagenAlt} />
             )}
             <div className="eyebrow">{noticiaPrincipal.categoria}</div>
-            <h1 className="principal-titulo">{noticiaPrincipal.titulo}</h1>
-            <p className="principal-bajada">{noticiaPrincipal.bajada}</p>
+            <h1 className="principal-titulo">{conFormato(noticiaPrincipal.titulo)}</h1>
+            <p className="principal-bajada">{conFormato(noticiaPrincipal.bajada)}</p>
             <div className="meta">{noticiaPrincipal.fecha}</div>
             <Link className="leer-mas" href={`/noticia/${generarSlug(noticiaPrincipal.titulo)}`}>
               LEER MÁS →
@@ -196,8 +197,8 @@ export default function Home() {
                     <span className="tag" style={{ background: color }}>
                       {n.categoria}
                     </span>
-                    <h3 className="card-title">{n.titulo}</h3>
-                    <p className="card-resumen">{n.resumen}</p>
+                    <h3 className="card-title">{conFormato(n.titulo)}</h3>
+                    <p className="card-resumen">{conFormato(n.resumen)}</p>
                     <span className="meta">{n.fecha}</span>
                   </div>
                 </Link>
@@ -253,8 +254,8 @@ export default function Home() {
                     <span className="tag" style={{ background: color, marginBottom: 6 }}>
                       {n.categoria}
                     </span>
-                    <h3 className="card-title">{n.titulo}</h3>
-                    <p className="card-resumen">{n.resumen}</p>
+                    <h3 className="card-title">{conFormato(n.titulo)}</h3>
+                    <p className="card-resumen">{conFormato(n.resumen)}</p>
                   </div>
                 </Link>
               );

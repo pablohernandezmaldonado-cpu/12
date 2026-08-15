@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import type { SiteData, Noticia, Categoria, MenuItem, PublicidadItem, TipoPublicidad } from "../../lib/types";
 import ImageUploadField from "./ImageUploadField";
+import { CampoTituloFormato, AreaTextoFormato } from "./CampoFormato";
 
 type Tab =
   | "noticias"
@@ -225,6 +226,10 @@ function NoticiaForm({
 }) {
   return (
     <div className="admin-grid">
+      <p className="admin-hint admin-field-wide" style={{ margin: "0 0 4px" }}>
+        Selecciona el texto que quieras resaltar y aprieta <strong>N</strong> (negrita) o{" "}
+        <em>I</em> (cursiva). Si no seleccionas nada, se inserta la marca donde esté el cursor.
+      </p>
       <div className="admin-field admin-field-wide">
         <span>Fotografía de la noticia</span>
         <ImageUploadField
@@ -250,29 +255,32 @@ function NoticiaForm({
           <input value={noticia.hora || ""} onChange={(e) => onChange({ ...noticia, hora: e.target.value })} />
         </label>
       )}
-      <label className="admin-field admin-field-wide">
+      <div className="admin-field admin-field-wide">
         <span>Título</span>
-        <input value={noticia.titulo} onChange={(e) => onChange({ ...noticia, titulo: e.target.value })} />
-      </label>
+        <CampoTituloFormato
+          value={noticia.titulo}
+          onChange={(v) => onChange({ ...noticia, titulo: v })}
+        />
+      </div>
       {conBajada && (
-        <label className="admin-field admin-field-wide">
+        <div className="admin-field admin-field-wide">
           <span>Bajada</span>
-          <textarea
+          <AreaTextoFormato
             value={noticia.bajada || ""}
-            onChange={(e) => onChange({ ...noticia, bajada: e.target.value })}
+            onChange={(v) => onChange({ ...noticia, bajada: v })}
             rows={2}
           />
-        </label>
+        </div>
       )}
       {!conBajada && (
-        <label className="admin-field admin-field-wide">
+        <div className="admin-field admin-field-wide">
           <span>Resumen</span>
-          <textarea
+          <AreaTextoFormato
             value={noticia.resumen || ""}
-            onChange={(e) => onChange({ ...noticia, resumen: e.target.value })}
+            onChange={(v) => onChange({ ...noticia, resumen: v })}
             rows={2}
           />
-        </label>
+        </div>
       )}
       <label className="admin-field admin-field-wide admin-toggle-field-inline">
         <label className="admin-toggle">
@@ -284,15 +292,15 @@ function NoticiaForm({
           Centrar el texto (título, bajada y fecha)
         </label>
       </label>
-      <label className="admin-field admin-field-wide">
+      <div className="admin-field admin-field-wide">
         <span>Contenido completo (lo que se ve al hacer clic en &quot;Leer más&quot;)</span>
-        <textarea
+        <AreaTextoFormato
           value={noticia.contenidoCompleto || ""}
-          onChange={(e) => onChange({ ...noticia, contenidoCompleto: e.target.value })}
+          onChange={(v) => onChange({ ...noticia, contenidoCompleto: v })}
           rows={6}
           placeholder="Escribe acá el artículo completo. Separa los párrafos dejando una línea en blanco entre ellos. Si lo dejas vacío, se muestra la bajada o el resumen."
         />
-      </label>
+      </div>
     </div>
   );
 }

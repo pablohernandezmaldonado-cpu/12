@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { site, noticiaPrincipal, destacadas, ultimasNoticias, categorias } from "../../content";
 import { generarSlug } from "../../../lib/slug";
+import { conFormato } from "../../../lib/formato";
 import type { Noticia } from "../../../lib/types";
 
 function todasLasNoticias(): Noticia[] {
@@ -57,8 +58,8 @@ export default function CategoriaPage({ params }: { params: { nombre: string } }
                   <div className="list-item-thumb list-item-thumb-empty" />
                 )}
                 <div>
-                  <h3 className="card-title">{n.titulo}</h3>
-                  <p className="card-resumen">{n.resumen || n.bajada}</p>
+                  <h3 className="card-title">{conFormato(n.titulo)}</h3>
+                  <p className="card-resumen">{conFormato(n.resumen || n.bajada)}</p>
                 </div>
               </Link>
             ))}
