@@ -150,9 +150,10 @@
     },
     {
       "id": "canal-2",
-      "titulo": "Canal 2",
-      "url": "",
-      "logoUrl": ""
+      "titulo": "CNN",
+      "url": "https://www.youtube.com/embed/live_stream?channel=UC_lEiu6917IJz03TnntWUaQ",
+      "logoUrl": "/uploads/canales/1786763075811-btbcja-images.png",
+      "enlaceOficial": "https://www.youtube.com/embed/live_stream?channel=UC_lEiu6917IJz03TnntWUaQ"
     },
     {
       "id": "canal-3",
