@@ -143,9 +143,9 @@
   "streamingCanales": [
     {
       "id": "canal-1",
-      "titulo": "Canal 1",
-      "url": "",
-      "logoUrl": ""
+      "titulo": "CANAL MEGA",
+      "url": "https://www.youtube.com/watch?v=jxYKg2GKvSc",
+      "logoUrl": "/uploads/canales/1786760073500-ohhm44-images.jpg"
     },
     {
       "id": "canal-2",
