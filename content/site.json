@@ -70,31 +70,116 @@
     }
   ],
   "categorias": [
-    { "nombre": "Regional", "color": "#2F4B3C" },
-    { "nombre": "Policial", "color": "#7A342A" },
-    { "nombre": "Política", "color": "#1B3A4B" },
-    { "nombre": "Deportes", "color": "#C9832F" },
-    { "nombre": "Económica", "color": "#4A4E52" },
-    { "nombre": "Cultura", "color": "#6B4A7A" },
-    { "nombre": "Salud", "color": "#2F6B5E" }
+    {
+      "nombre": "Regional",
+      "color": "#2F4B3C"
+    },
+    {
+      "nombre": "Policial",
+      "color": "#7A342A"
+    },
+    {
+      "nombre": "Política",
+      "color": "#1B3A4B"
+    },
+    {
+      "nombre": "Deportes",
+      "color": "#C9832F"
+    },
+    {
+      "nombre": "Económica",
+      "color": "#4A4E52"
+    },
+    {
+      "nombre": "Cultura",
+      "color": "#6B4A7A"
+    },
+    {
+      "nombre": "Salud",
+      "color": "#2F6B5E"
+    }
   ],
   "menu": [
-    { "nombre": "Inicio", "href": "#" },
-    { "nombre": "Regional", "href": "#" },
-    { "nombre": "Policial", "href": "#" },
-    { "nombre": "Política", "href": "#" },
-    { "nombre": "Deportes", "href": "#" },
-    { "nombre": "Económica", "href": "#" },
-    { "nombre": "Cultura", "href": "#" },
-    { "nombre": "Programación", "href": "#" },
-    { "nombre": "Contacto", "href": "#" }
+    {
+      "nombre": "Inicio",
+      "href": "#"
+    },
+    {
+      "nombre": "Regional",
+      "href": "#"
+    },
+    {
+      "nombre": "Policial",
+      "href": "#"
+    },
+    {
+      "nombre": "Política",
+      "href": "#"
+    },
+    {
+      "nombre": "Deportes",
+      "href": "#"
+    },
+    {
+      "nombre": "Económica",
+      "href": "#"
+    },
+    {
+      "nombre": "Cultura",
+      "href": "#"
+    },
+    {
+      "nombre": "Programación",
+      "href": "#"
+    },
+    {
+      "nombre": "Contacto",
+      "href": "#"
+    }
   ],
-  "publicidad": [],
+  "publicidad": [
+    {
+      "id": "pub-1786908826650-y9ynk",
+      "tipo": "lateral-superior",
+      "cliente": "",
+      "descripcion": "",
+      "imagenUrl": "/uploads/publicidad/1786908998083-vtimrg-whatsapp-image-2026-08-15-at-19.50.45.jpeg",
+      "enlace": "https://wa.me/56936800986"
+    },
+    {
+      "id": "pub-1786909000658-lq2gm",
+      "tipo": "lateral",
+      "cliente": "",
+      "descripcion": "",
+      "imagenUrl": "/uploads/publicidad/1786909011289-nd9uos-whatsapp-image-2026-08-15-at-19.50.45-1.jpeg",
+      "enlace": "https://wa.me/56936800986"
+    }
+  ],
   "streamingCanales": [
-    { "id": "canal-1", "titulo": "Canal 1", "url": "", "logoUrl": "" },
-    { "id": "canal-2", "titulo": "Canal 2", "url": "", "logoUrl": "" },
-    { "id": "canal-3", "titulo": "Canal 3", "url": "", "logoUrl": "" },
-    { "id": "canal-4", "titulo": "Canal 4", "url": "", "logoUrl": "" }
+    {
+      "id": "canal-1",
+      "titulo": "Canal 1",
+      "url": "",
+      "logoUrl": ""
+    },
+    {
+      "id": "canal-2",
+      "titulo": "Canal 2",
+      "url": "",
+      "logoUrl": ""
+    },
+    {
+      "id": "canal-3",
+      "titulo": "Canal 3",
+      "url": "",
+      "logoUrl": ""
+    },
+    {
+      "id": "canal-4",
+      "titulo": "Canal 4",
+      "url": "",
+      "logoUrl": ""
+    }
   ],
   "contacto": {
     "direccion": "Coyhaique, Región de Aysén, Chile",
