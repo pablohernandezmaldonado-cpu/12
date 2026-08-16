@@ -233,6 +233,7 @@ nav.main-menu a:hover {
   display: grid;
   grid-template-columns: 1.7fr 1fr;
   gap: 28px;
+  align-items: start;
 }
 
 @media (max-width: 860px) {

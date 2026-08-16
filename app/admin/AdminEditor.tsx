@@ -532,8 +532,10 @@ function CuentaTab() {
 // ---------------------------------------------------------------
 const TIPOS_PUBLICIDAD: { id: TipoPublicidad; label: string; hint: string }[] = [
   { id: "banner-superior", label: "Banner superior", hint: "Debajo del menú, arriba de las noticias (940×110)." },
-  { id: "lateral-superior", label: "Banner lateral (superior)", hint: "Casilla comercial arriba, junto a la noticia principal — antes era el cuadro de radio." },
-  { id: "lateral", label: "Banner lateral", hint: "Casilla comercial abajo, junto a la noticia principal (misma medida que la de arriba)." },
+  { id: "lateral-superior", label: "Banner lateral (1)", hint: "Primera casilla comercial junto a la noticia principal." },
+  { id: "lateral", label: "Banner lateral (2)", hint: "Segunda casilla comercial junto a la noticia principal (misma medida)." },
+  { id: "lateral-3", label: "Banner lateral (3)", hint: "Tercera casilla comercial junto a la noticia principal (misma medida)." },
+  { id: "lateral-4", label: "Banner lateral (4)", hint: "Cuarta casilla comercial junto a la noticia principal (misma medida)." },
   { id: "entre-noticias", label: "Entre noticias", hint: "Bloque comercial entre secciones de noticias." },
   { id: "destacada", label: "Publicidad destacada", hint: "Espacio grande, una sola pieza grande." },
   { id: "celular", label: "Publicidad para celular", hint: "Solo se muestra en pantallas de celular." },
