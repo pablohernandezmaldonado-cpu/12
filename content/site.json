@@ -14,11 +14,10 @@
   },
   "noticiaPrincipal": {
     "categoria": "Regional",
-    "titulo": "**Avanzan trabajos en la Carretera Austral tras las últimas lluvias en Aysén**",
+    "titulo": "Avanzan trabajos en la Carretera Austral tras las últimas lluvias en Aysén",
     "bajada": "Vialidad informó que los tramos afectados entre Coyhaique y Puerto Aysén quedarán habilitados durante la semana, restableciendo el tránsito normal.",
     "fecha": "11 de agosto de 2026",
-    "imagenAlt": "Carretera Austral en la Región de Aysén",
-    "imagenUrl": "/uploads/noticias/1786833105381-cx0m7w-file-00000000a3f861f78e5831c9479c1f6c.png"
+    "imagenAlt": "Carretera Austral en la Región de Aysén"
   },
   "destacadas": [
     {
@@ -71,108 +70,31 @@
     }
   ],
   "categorias": [
-    {
-      "nombre": "Regional",
-      "color": "#2F4B3C"
-    },
-    {
-      "nombre": "Policial",
-      "color": "#7A342A"
-    },
-    {
-      "nombre": "Política",
-      "color": "#1B3A4B"
-    },
-    {
-      "nombre": "Deportes",
-      "color": "#C9832F"
-    },
-    {
-      "nombre": "Económica",
-      "color": "#4A4E52"
-    },
-    {
-      "nombre": "Cultura",
-      "color": "#6B4A7A"
-    },
-    {
-      "nombre": "Salud",
-      "color": "#2F6B5E"
-    }
+    { "nombre": "Regional", "color": "#2F4B3C" },
+    { "nombre": "Policial", "color": "#7A342A" },
+    { "nombre": "Política", "color": "#1B3A4B" },
+    { "nombre": "Deportes", "color": "#C9832F" },
+    { "nombre": "Económica", "color": "#4A4E52" },
+    { "nombre": "Cultura", "color": "#6B4A7A" },
+    { "nombre": "Salud", "color": "#2F6B5E" }
   ],
   "menu": [
-    {
-      "nombre": "Inicio",
-      "href": "#"
-    },
-    {
-      "nombre": "Regional",
-      "href": "#"
-    },
-    {
-      "nombre": "Policial",
-      "href": "#"
-    },
-    {
-      "nombre": "Política",
-      "href": "#"
-    },
-    {
-      "nombre": "Deportes",
-      "href": "#"
-    },
-    {
-      "nombre": "Económica",
-      "href": "#"
-    },
-    {
-      "nombre": "Cultura",
-      "href": "#"
-    },
-    {
-      "nombre": "Programación",
-      "href": "#"
-    },
-    {
-      "nombre": "Contacto",
-      "href": "#"
-    }
+    { "nombre": "Inicio", "href": "#" },
+    { "nombre": "Regional", "href": "#" },
+    { "nombre": "Policial", "href": "#" },
+    { "nombre": "Política", "href": "#" },
+    { "nombre": "Deportes", "href": "#" },
+    { "nombre": "Económica", "href": "#" },
+    { "nombre": "Cultura", "href": "#" },
+    { "nombre": "Programación", "href": "#" },
+    { "nombre": "Contacto", "href": "#" }
   ],
-  "publicidad": [
-    {
-      "id": "pub-1786849577512-yqyrw",
-      "tipo": "banner-superior",
-      "cliente": "",
-      "descripcion": "",
-      "imagenUrl": "/uploads/publicidad/1786850658433-9ko7vg-diseno-sin-titulo.png",
-      "enlace": ""
-    }
-  ],
+  "publicidad": [],
   "streamingCanales": [
-    {
-      "id": "canal-1",
-      "titulo": "Canal 1",
-      "url": "",
-      "logoUrl": ""
-    },
-    {
-      "id": "canal-2",
-      "titulo": "Canal 2",
-      "url": "",
-      "logoUrl": ""
-    },
-    {
-      "id": "canal-3",
-      "titulo": "Canal 3",
-      "url": "",
-      "logoUrl": ""
-    },
-    {
-      "id": "canal-4",
-      "titulo": "Canal 4",
-      "url": "",
-      "logoUrl": ""
-    }
+    { "id": "canal-1", "titulo": "Canal 1", "url": "", "logoUrl": "" },
+    { "id": "canal-2", "titulo": "Canal 2", "url": "", "logoUrl": "" },
+    { "id": "canal-3", "titulo": "Canal 3", "url": "", "logoUrl": "" },
+    { "id": "canal-4", "titulo": "Canal 4", "url": "", "logoUrl": "" }
   ],
   "contacto": {
     "direccion": "Coyhaique, Región de Aysén, Chile",

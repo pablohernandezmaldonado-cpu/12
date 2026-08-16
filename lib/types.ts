@@ -14,6 +14,7 @@ export interface Noticia {
 
 export type TipoPublicidad =
   | "banner-superior"
+  | "lateral-superior"
   | "lateral"
   | "entre-noticias"
   | "destacada"

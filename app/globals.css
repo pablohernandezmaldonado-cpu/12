@@ -363,78 +363,51 @@ nav.main-menu a:hover {
   font-size: 14px;
 }
 
-/* ---- Panel de radio ---- */
+/* ---- Casillas comerciales del hero (junto a la noticia principal) ----
+   Medidas fáciles de editar: cambiá estos dos valores y las dos casillas
+   se ajustan solas. --ad-lateral-height es el alto de CADA casilla;
+   --ad-lateral-gap es el espacio entre ellas. */
+:root {
+  --ad-lateral-height: 190px;
+  --ad-lateral-gap: 16px;
+}
+
 .hero-sidebar {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--ad-lateral-gap);
   height: 100%;
 }
 
 .ad-lateral-stack {
-  flex: 1;
+  flex: 1 1 var(--ad-lateral-height);
+  min-height: var(--ad-lateral-height);
+  max-height: var(--ad-lateral-height);
   display: flex;
   flex-direction: column;
 }
 
 .ad-lateral-stack .ad-slot {
   flex: 1;
-  min-height: 160px;
+  min-height: var(--ad-lateral-height);
+  height: 100%;
 }
 
 .ad-lateral-stack .ad-real-wrap {
+  flex: 1;
   flex-direction: column;
+  height: 100%;
 }
 
 .ad-lateral-stack .ad-real-card {
+  flex: 1;
   flex-basis: auto;
+  height: 100%;
 }
 
-.radio-panel {
-  background: var(--fiordo);
-  color: var(--glaciar);
-  border-radius: 4px;
-  padding: 22px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  height: fit-content;
-}
-
-.radio-status {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: #e8a06f;
-  letter-spacing: 0.05em;
-}
-
-.radio-nombre {
-  font-family: var(--font-display);
-  font-size: 24px;
-  font-weight: 600;
-}
-
-.radio-meta {
-  font-size: 13px;
-  opacity: 0.75;
-}
-
-.play-btn {
-  background: var(--coiron);
-  color: var(--turba);
-  border: none;
-  border-radius: 3px;
-  padding: 12px 18px;
-  font-weight: 700;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  justify-content: center;
+.ad-lateral-stack .ad-real-img {
+  height: 100%;
+  object-fit: cover;
 }
 
 /* ---- Secciones ---- */

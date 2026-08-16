@@ -8,6 +8,7 @@ function urlCompleta(url: string): string {
 
 const ETIQUETAS: Record<TipoPublicidad, string> = {
   "banner-superior": "BANNER SUPERIOR (940 × 110)",
+  "lateral-superior": "BANNER LATERAL (SUPERIOR)",
   lateral: "BANNER LATERAL",
   "entre-noticias": "PUBLICIDAD ENTRE NOTICIAS",
   destacada: "PUBLICIDAD DESTACADA",
