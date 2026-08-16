@@ -4,6 +4,7 @@ import { site, noticiaPrincipal, destacadas, ultimasNoticias, categorias } from 
 import { generarSlug } from "../../../lib/slug";
 import { conFormato } from "../../../lib/formato";
 import type { Noticia } from "../../../lib/types";
+import CompartirFacebook from "../../components/CompartirFacebook";
 
 function todasLasNoticias(): Noticia[] {
   return [noticiaPrincipal, ...destacadas, ...ultimasNoticias];
@@ -56,6 +57,8 @@ export default function NoticiaPage({ params }: { params: { slug: string } }) {
             {noticia.fecha}
             {noticia.hora ? ` · ${noticia.hora}` : ""}
           </div>
+
+          <CompartirFacebook titulo={noticia.titulo} />
 
           <div className="articulo-cuerpo">
             {cuerpo.split("\n").map((parrafo, i) =>

@@ -354,6 +354,26 @@ nav.main-menu a:hover {
   color: var(--piedra);
 }
 
+.compartir-fb-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 10px 18px;
+  background: #1877f2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.compartir-fb-btn:hover {
+  background: #0f5fcc;
+}
+
 .leer-mas {
   display: inline-block;
   margin-top: 16px;
