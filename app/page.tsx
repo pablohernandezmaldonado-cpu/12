@@ -113,10 +113,22 @@ export default function Home() {
           </div>
 
           <div className="hero-sidebar">
-            <PublicidadSlot tipo="lateral-superior" items={publicidad} className="ad-lateral ad-lateral-stack" />
+            <aside className="radio-panel">
+              <div className="radio-status">
+                <span className="dot" /> {radio.enVivo ? "EN VIVO" : "FUERA DE AIRE"}
+              </div>
+              <div className="radio-nombre">{radio.nombrePrograma}</div>
+              <div className="radio-meta">Con {radio.locutor}</div>
+              <a
+                href={radio.urlStreaming ? urlCompleta(radio.urlStreaming) : "#contacto-footer"}
+                target={radio.urlStreaming ? "_blank" : undefined}
+                rel="noreferrer"
+                className="play-btn"
+              >
+                ▶ ESCUCHAR EN VIVO
+              </a>
+            </aside>
             <PublicidadSlot tipo="lateral" items={publicidad} className="ad-lateral ad-lateral-stack" />
-            <PublicidadSlot tipo="lateral-3" items={publicidad} className="ad-lateral ad-lateral-stack" />
-            <PublicidadSlot tipo="lateral-4" items={publicidad} className="ad-lateral ad-lateral-stack" />
           </div>
         </section>
 
@@ -224,7 +236,7 @@ export default function Home() {
             Últimas noticias <small>actualizado {noticiaPrincipal.fecha}</small>
           </h2>
           <div className="list-noticias">
-            {ultimasNoticias.map((n) => {
+            {ultimasNoticias.slice(0, 10).map((n) => {
               const color =
                 categorias.find((c) => c.nombre === n.categoria)?.color ?? "#2F4B3C";
               return (

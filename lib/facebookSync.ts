@@ -3,7 +3,9 @@ import type { SiteData, Noticia } from "./types";
 
 const GRAPH_VERSION = "v21.0";
 const SITE_JSON_PATH = "content/site.json";
-const MAX_ULTIMAS = 40; // no dejamos crecer la lista sin límite
+// Ojo: acá NO recortamos la lista. Todo lo que se sube se guarda para
+// siempre — el límite de "cuántas se muestran" se aplica solo al
+// renderizar la portada (ver app/page.tsx), nunca al guardar.
 
 interface FacebookPost {
   id: string;
@@ -120,10 +122,7 @@ export async function sincronizarFacebook(): Promise<ResultadoSync> {
     return { ok: true, nuevos: 0 };
   }
 
-  const ultimasActualizadas = [...noticiasNuevas.reverse(), ...data.ultimasNoticias].slice(
-    0,
-    MAX_ULTIMAS
-  );
+  const ultimasActualizadas = [...noticiasNuevas.reverse(), ...data.ultimasNoticias];
 
   const dataActualizada: SiteData = {
     ...data,

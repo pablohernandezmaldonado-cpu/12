@@ -143,10 +143,47 @@ function NoticiasTab({
   data: SiteData;
   setData: React.Dispatch<React.SetStateAction<SiteData>>;
 }) {
+  // Sube una noticia de "Destacadas" o "Últimas noticias" al lugar
+  // Principal, y GUARDA la que estaba antes en Principal al inicio de
+  // "Últimas noticias" — así nunca se pierde nada ni hay que escribir
+  // dos veces lo mismo.
+  function ponerComoPrincipal(origen: "destacadas" | "ultimasNoticias", index: number) {
+    const listaOrigen = origen === "destacadas" ? data.destacadas : data.ultimasNoticias;
+    const original = listaOrigen[index];
+    // La Principal usa "bajada"; las otras listas usan "resumen" — nos
+    // aseguramos de que el texto se siga viendo aunque cambie de lugar.
+    const nuevaPrincipal: Noticia = {
+      ...original,
+      bajada: original.bajada || original.resumen || "",
+    };
+    const listaSinEsa = listaOrigen.filter((_, i) => i !== index);
+
+    const principalAnteriorTieneContenido = data.noticiaPrincipal.titulo.trim().length > 0;
+    const principalDemovida: Noticia = {
+      ...data.noticiaPrincipal,
+      resumen: data.noticiaPrincipal.resumen || data.noticiaPrincipal.bajada || "",
+      hora: data.noticiaPrincipal.hora || "",
+    };
+    const ultimasConLaAnterior = principalAnteriorTieneContenido
+      ? [principalDemovida, ...data.ultimasNoticias]
+      : data.ultimasNoticias;
+
+    setData({
+      ...data,
+      noticiaPrincipal: nuevaPrincipal,
+      destacadas: origen === "destacadas" ? listaSinEsa : data.destacadas,
+      ultimasNoticias: origen === "ultimasNoticias" ? listaSinEsa : ultimasConLaAnterior,
+    });
+  }
+
   return (
     <div>
       <h2 className="admin-h2">Noticia principal</h2>
-      <p className="admin-hint">Esta es la que aparece grande, arriba de todo en la portada.</p>
+      <p className="admin-hint">
+        Esta es la que aparece grande, arriba de todo en la portada. Para cambiarla sin perder la
+        actual, usa el botón &quot;★ Poner como Principal&quot; en cualquier noticia de las listas
+        de abajo, en vez de escribir encima de esta.
+      </p>
       <NoticiaForm
         noticia={data.noticiaPrincipal}
         onChange={(n) => setData({ ...data, noticiaPrincipal: n })}
@@ -156,19 +193,27 @@ function NoticiasTab({
       <h2 className="admin-h2" style={{ marginTop: 36 }}>
         Noticias destacadas
       </h2>
-      <p className="admin-hint">Las 3 tarjetas debajo de la noticia principal.</p>
+      <p className="admin-hint">
+        Las 3 tarjetas debajo de la noticia principal — agrega todas las que quieras, no hay
+        límite, no necesitas borrar ninguna para sumar otra.
+      </p>
       <NoticiaLista
         items={data.destacadas}
         onChange={(items) => setData({ ...data, destacadas: items })}
+        onPonerComoPrincipal={(i) => ponerComoPrincipal("destacadas", i)}
       />
 
       <h2 className="admin-h2" style={{ marginTop: 36 }}>
         Últimas noticias
       </h2>
-      <p className="admin-hint">La lista cronológica más abajo en la página.</p>
+      <p className="admin-hint">
+        La lista cronológica más abajo en la página (la portada solo muestra las 10 más
+        recientes, pero todas quedan guardadas para siempre y se pueden ver por categoría).
+      </p>
       <NoticiaLista
         items={data.ultimasNoticias}
         onChange={(items) => setData({ ...data, ultimasNoticias: items })}
+        onPonerComoPrincipal={(i) => ponerComoPrincipal("ultimasNoticias", i)}
         conHora
       />
     </div>
@@ -178,10 +223,12 @@ function NoticiasTab({
 function NoticiaLista({
   items,
   onChange,
+  onPonerComoPrincipal,
   conHora,
 }: {
   items: Noticia[];
   onChange: (items: Noticia[]) => void;
+  onPonerComoPrincipal: (index: number) => void;
   conHora?: boolean;
 }) {
   function updateAt(i: number, n: Noticia) {
@@ -201,9 +248,14 @@ function NoticiaLista({
       {items.map((n, i) => (
         <div className="admin-card-edit" key={i}>
           <NoticiaForm noticia={n} onChange={(v) => updateAt(i, v)} conHora={conHora} />
-          <button className="btn-danger" onClick={() => removeAt(i)}>
-            Eliminar esta noticia
-          </button>
+          <div style={{ display: "flex", gap: 10, marginTop: 10 }}>
+            <button className="btn-secondary" onClick={() => onPonerComoPrincipal(i)}>
+              ★ Poner como Principal
+            </button>
+            <button className="btn-danger" style={{ marginTop: 0 }} onClick={() => removeAt(i)}>
+              Eliminar esta noticia
+            </button>
+          </div>
         </div>
       ))}
       <button className="btn-secondary" onClick={add}>
@@ -532,11 +584,9 @@ function CuentaTab() {
 // ---------------------------------------------------------------
 const TIPOS_PUBLICIDAD: { id: TipoPublicidad; label: string; hint: string }[] = [
   { id: "banner-superior", label: "Banner superior", hint: "Debajo del menú, arriba de las noticias (940×110)." },
-  { id: "lateral-superior", label: "Banner lateral (1)", hint: "Primera casilla comercial junto a la noticia principal." },
-  { id: "lateral", label: "Banner lateral (2)", hint: "Segunda casilla comercial junto a la noticia principal (misma medida)." },
-  { id: "lateral-3", label: "Banner lateral (3)", hint: "Tercera casilla comercial junto a la noticia principal (misma medida)." },
-  { id: "lateral-4", label: "Banner lateral (4)", hint: "Cuarta casilla comercial junto a la noticia principal (misma medida)." },
-  { id: "entre-noticias", label: "Entre noticias", hint: "Bloque comercial entre secciones de noticias." },
+  { id: "lateral", label: "Banner lateral", hint: "Espacio vertical junto a las últimas noticias." },
+  { id: "entre-noticias", label: "Entre noticias", hint: "Bloque comercial entre secciones de noticias (en la portada)." },
+  { id: "en-articulo", label: "Dentro de cada noticia", hint: "Aparece cuando alguien abre una noticia completa, antes del texto." },
   { id: "destacada", label: "Publicidad destacada", hint: "Espacio grande, una sola pieza grande." },
   { id: "celular", label: "Publicidad para celular", hint: "Solo se muestra en pantallas de celular." },
   { id: "auspiciador", label: "Aviso comercial (franja inferior)", hint: "Aparece en la franja \"Aviso Comercial\", con logo y descripción." },
