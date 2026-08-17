@@ -113,22 +113,37 @@ export default function Home() {
           </div>
 
           <div className="hero-sidebar">
-            <aside className="radio-panel">
-              <div className="radio-status">
-                <span className="dot" /> {radio.enVivo ? "EN VIVO" : "FUERA DE AIRE"}
-              </div>
-              <div className="radio-nombre">{radio.nombrePrograma}</div>
-              <div className="radio-meta">Con {radio.locutor}</div>
-              <a
-                href={radio.urlStreaming ? urlCompleta(radio.urlStreaming) : "#contacto-footer"}
-                target={radio.urlStreaming ? "_blank" : undefined}
-                rel="noreferrer"
-                className="play-btn"
-              >
-                ▶ ESCUCHAR EN VIVO
-              </a>
-            </aside>
-            <PublicidadSlot tipo="lateral" items={publicidad} className="ad-lateral ad-lateral-stack" />
+            {Array.from({ length: 4 }).map((_, i) => {
+              const item = publicidad.filter((p) => p.tipo === "lateral")[i];
+              if (!item) {
+                return (
+                  <div key={i} className="ad-300x250 ad-slot">
+                    ESPACIO COMERCIAL — 300 × 250
+                  </div>
+                );
+              }
+              const contenido = item.imagenUrl ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={item.imagenUrl} alt={item.cliente} className="ad-300x250-img" />
+              ) : (
+                <div className="ad-real-noimg">{item.cliente}</div>
+              );
+              return item.enlace ? (
+                <a
+                  key={item.id}
+                  href={urlCompleta(item.enlace)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="ad-300x250"
+                >
+                  {contenido}
+                </a>
+              ) : (
+                <div key={item.id} className="ad-300x250">
+                  {contenido}
+                </div>
+              );
+            })}
           </div>
         </section>
 
