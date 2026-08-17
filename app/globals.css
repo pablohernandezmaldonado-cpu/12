@@ -363,6 +363,23 @@ nav.main-menu a:hover {
   font-size: 14px;
 }
 
+.ver-indice-link {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  padding: 12px;
+  font-weight: 600;
+  color: var(--fiordo);
+  border: 1px solid var(--borde);
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.ver-indice-link:hover {
+  background: var(--glaciar-2);
+  border-color: var(--coiron);
+}
+
 /* ---- Panel de radio ---- */
 .hero-sidebar {
   display: flex;

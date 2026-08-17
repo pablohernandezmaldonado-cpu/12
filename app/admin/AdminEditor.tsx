@@ -45,13 +45,13 @@ export default function AdminEditor({ initialData }: { initialData: SiteData }) 
     { type: "idle" } | { type: "saving" } | { type: "ok" } | { type: "error"; msg: string }
   >({ type: "idle" });
 
-  async function handleSave() {
+  async function guardarDatos(datosAGuardar: SiteData) {
     setStatus({ type: "saving" });
     try {
       const res = await fetch("/api/admin/save", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify(datosAGuardar),
       });
       const result = await res.json();
       if (!result.ok) {
@@ -62,6 +62,10 @@ export default function AdminEditor({ initialData }: { initialData: SiteData }) 
     } catch {
       setStatus({ type: "error", msg: "No se pudo conectar con el servidor." });
     }
+  }
+
+  async function handleSave() {
+    await guardarDatos(data);
   }
 
   async function handleLogout() {
@@ -108,7 +112,7 @@ export default function AdminEditor({ initialData }: { initialData: SiteData }) 
         </nav>
 
         <div className="admin-panel">
-          {tab === "noticias" && <NoticiasTab data={data} setData={setData} />}
+          {tab === "noticias" && <NoticiasTab data={data} setData={setData} guardarDatos={guardarDatos} />}
           {tab === "radio" && <RadioTab data={data} setData={setData} />}
           {tab === "publicidad" && <PublicidadTab data={data} setData={setData} />}
           {tab === "streaming" && <StreamingTab data={data} setData={setData} />}
@@ -139,15 +143,18 @@ export default function AdminEditor({ initialData }: { initialData: SiteData }) 
 function NoticiasTab({
   data,
   setData,
+  guardarDatos,
 }: {
   data: SiteData;
   setData: React.Dispatch<React.SetStateAction<SiteData>>;
+  guardarDatos: (datos: SiteData) => Promise<void>;
 }) {
   // Sube una noticia de "Destacadas" o "Últimas noticias" al lugar
   // Principal, y GUARDA la que estaba antes en Principal al inicio de
   // "Últimas noticias" — así nunca se pierde nada ni hay que escribir
-  // dos veces lo mismo.
-  function ponerComoPrincipal(origen: "destacadas" | "ultimasNoticias", index: number) {
+  // dos veces lo mismo. Además publica el cambio al toque, sin
+  // necesidad de apretar "Guardar cambios" aparte.
+  async function ponerComoPrincipal(origen: "destacadas" | "ultimasNoticias", index: number) {
     const listaOrigen = origen === "destacadas" ? data.destacadas : data.ultimasNoticias;
     const original = listaOrigen[index];
     // La Principal usa "bajada"; las otras listas usan "resumen" — nos
@@ -168,12 +175,15 @@ function NoticiasTab({
       ? [principalDemovida, ...data.ultimasNoticias]
       : data.ultimasNoticias;
 
-    setData({
+    const nuevosDatos: SiteData = {
       ...data,
       noticiaPrincipal: nuevaPrincipal,
       destacadas: origen === "destacadas" ? listaSinEsa : data.destacadas,
       ultimasNoticias: origen === "ultimasNoticias" ? listaSinEsa : ultimasConLaAnterior,
-    });
+    };
+
+    setData(nuevosDatos);
+    await guardarDatos(nuevosDatos);
   }
 
   return (

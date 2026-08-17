@@ -276,6 +276,9 @@ export default function Home() {
               );
             })}
           </div>
+          <Link href="/archivo" className="ver-indice-link">
+            Ver índice completo de noticias →
+          </Link>
         </section>
 
         {/* Publicidad destacada */}
@@ -320,9 +323,14 @@ export default function Home() {
           <span>
             © {new Date().getFullYear()} Patagonia al Día — {site.region}. Todos los derechos reservados.
           </span>
-          <a href="/admin" className="admin-access-link">
-            Acceso administrador
-          </a>
+          <span style={{ display: "flex", gap: 16 }}>
+            <Link href="/archivo" className="admin-access-link">
+              Índice de noticias
+            </Link>
+            <a href="/admin" className="admin-access-link">
+              Acceso administrador
+            </a>
+          </span>
         </div>
       </footer>
     </>
